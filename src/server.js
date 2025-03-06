@@ -23,7 +23,7 @@ export const setupServer = () => {
   app.get('/', (req, res) => {
     res.json({
       message:
-        'Use http://localhost:3000/contacts to get all contacts, or add /contactId to get contact by Id',
+        'Add /contacts to get all contacts or /contacts/contactId to get contact by Id',
     });
   });
 
@@ -31,6 +31,8 @@ export const setupServer = () => {
     const contacts = await getAllContacts();
 
     res.status(200).json({
+      status: 200,
+      message: 'Successfully found contacts!',
       data: contacts,
     });
   });
