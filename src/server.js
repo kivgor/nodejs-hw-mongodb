@@ -51,7 +51,7 @@ export const setupServer = () => {
 
     res.status(200).json({
       status: 200,
-      message: 'Successfully found contacts!',
+      message: `Successfully found contact with id ${contactId}!`,
       data: contact,
     });
   });
@@ -64,7 +64,7 @@ export const setupServer = () => {
 
   app.use((err, req, res, next) => {
     res.status(500).json({
-      message: 'Something went wrong',
+      message: 'Something went wrong!',
       error: err.message,
     });
   });
