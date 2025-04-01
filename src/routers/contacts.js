@@ -44,14 +44,14 @@ router.post(
 
 router.patch(
   '/contacts/:contactId',
-  checkRoles(ROLES.ADMIN),
+  checkRoles(ROLES.ADMIN, ROLES.USER),
   validateBody(updateContactSchema),
   ctrlWrapper(patchContactController),
 );
 
 router.delete(
   '/contacts/:contactId',
-  checkRoles(ROLES.ADMIN),
+  checkRoles(ROLES.ADMIN, ROLES.USER),
   isValidId,
   ctrlWrapper(deleteContactController),
 );
