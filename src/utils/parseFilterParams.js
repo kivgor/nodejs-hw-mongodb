@@ -13,14 +13,22 @@ const parseIsFavourite = (isFavourite) => {
   return isFavourite;
 };
 
+const parseUserId = (userId) => {
+  const isString = typeof userId === 'string';
+  if (!isString) return;
+  return userId;
+};
+
 export const parseFilterParams = (query) => {
-  const { type, isFavourite } = query;
+  const { type, isFavourite, userId } = query;
 
   const parsedContactType = parseContactType(type);
   const parsedIsFavourite = parseIsFavourite(isFavourite);
+  const parsedUserId = parseUserId(userId);
 
   return {
     type: parsedContactType,
     isFavourite: parsedIsFavourite,
+    userId: parsedUserId,
   };
 };

@@ -19,10 +19,6 @@ export const registerUserSchema = Joi.object({
     'string.max': 'Password should have at most {#limit} characters',
     'any.required': 'Password is required',
   }),
-  role: Joi.string().required().messages({
-    'string.base': 'Password should be a string',
-    'any.required': 'Password is required',
-  }),
 });
 
 export const loginUserSchema = Joi.object({
