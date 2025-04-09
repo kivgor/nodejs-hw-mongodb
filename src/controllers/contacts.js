@@ -28,11 +28,18 @@ export const getContactsController = async (req, res) => {
     req.user._id,
   );
 
-  res.status(200).json({
-    status: 200,
-    message: 'Successfully found contacts!',
-    data: contacts,
-  });
+  if (contacts.data.length != 0) {
+    res.status(200).json({
+      status: 200,
+      message: 'Successfully found contacts!',
+      data: contacts,
+    });
+  } else {
+    res.status(404).json({
+      status: 404,
+      message: 'Contacts not found!',
+    });
+  }
 };
 
 export const getContactByIdController = async (req, res, next) => {
@@ -40,7 +47,7 @@ export const getContactByIdController = async (req, res, next) => {
   const contact = await getContactById(contactId, req.user._id);
 
   if (!contact) {
-    throw createHttpError(404, 'Contact not found');
+    throw createHttpError(404, 'Route not found');
   }
 
   res.status(200).json({

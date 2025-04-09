@@ -1,0 +1,79 @@
+tags:
+  - Contacts
+summary: Create contact
+operationId: createContact
+description: 'Create a contact with payload'
+security:
+  - bearerAuth: []
+requestBody:
+  content:
+    multipart/form-data:
+      schema:
+        type: object
+        required:
+          - name
+          - phoneNumber
+          - contactType
+        properties:
+          name:
+            description: 'Name'
+            type: string
+            example: 'John Doe'
+          phoneNumber:
+            description: 'Phone number'
+            type: string
+            example: '097 123-45-67'
+          email:
+            description: 'Email'
+            type: string
+            example: 'john@gmail.com'
+          isFavourite:
+            description: 'Whether the contact favourite'
+            type: boolean
+            example: false
+          contactType:
+            description: 'The type of contact'
+            type: string
+            enum: ['work', 'home', 'personal']
+            example: 'work'
+          photo:
+            description: "Link to contact's photo"
+            type: string
+            example: https://res.cloudinary.com/dplwawynt/image/upload/v1743929133/k34chxvprupz307ilpqx.jpg
+responses:
+  '201':
+    description: Creates a contact
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 201
+            message:
+              type: string
+              example: Successfully created a contact!
+            data:
+              type: object
+              $ref: '../../components/schemas/contact.yaml'
+  '404':
+    description: Not found error
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+          properties:
+            status:
+              type: integer
+              example: 404
+            message:
+              type: string
+              example: 'Route not found'

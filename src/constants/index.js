@@ -27,3 +27,5 @@ export const CLOUDINARY = {
 };
 
 export const ENABLE_CLOUDINARY = 'true';
+
+export const SWAGGER_PATH = path.join(process.cwd(), 'docs', 'swagger.json');
