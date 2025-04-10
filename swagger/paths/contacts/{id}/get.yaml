@@ -58,3 +58,5 @@ responses:
                 message:
                   type: string
                   example: 'Route not found'
+  '401':
+    $ref: '../../../components/responses/401.yaml'

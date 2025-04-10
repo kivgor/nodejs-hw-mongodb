@@ -35,9 +35,9 @@ export const getContactsController = async (req, res) => {
       data: contacts,
     });
   } else {
-    res.status(404).json({
-      status: 404,
-      message: 'Contacts not found!',
+    res.status(200).json({
+      status: 200,
+      message: 'There are no contacts!',
     });
   }
 };
