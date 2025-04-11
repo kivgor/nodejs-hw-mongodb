@@ -35,6 +35,11 @@ export const createContactSchema = Joi.object({
     }
     return true;
   }),
+  photo: Joi.string().min(3).max(500).messages({
+    'string.base': 'Photo should be a string with link',
+    'string.min': 'Photo should have at least {#limit} characters',
+    'string.max': 'Photo should have at most {#limit} characters',
+  }),
 });
 
 export const updateContactSchema = Joi.object({
@@ -58,5 +63,10 @@ export const updateContactSchema = Joi.object({
   }),
   contactType: Joi.string().valid('work', 'home', 'personal').messages({
     'string.base': 'Contact type should be a string',
+  }),
+  photo: Joi.string().min(3).max(500).messages({
+    'string.base': 'Photo should be a string with link',
+    'string.min': 'Photo should have at least {#limit} characters',
+    'string.max': 'Photo should have at most {#limit} characters',
   }),
 });
