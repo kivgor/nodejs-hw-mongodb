@@ -9,8 +9,6 @@ info:
 tags:
   - name: Contacts
     description: Operations with users contacts.
-  # - name: Auth
-  #   description: Auth operations.
 servers:
   - url: http://localhost:3000
   - url: https://contacts-web-service-cbb2.onrender.com
