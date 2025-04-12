@@ -228,7 +228,7 @@
                   "photo": {
                     "description": "Link to contact's photo",
                     "type": "string",
-                    "example": "https://res.cloudinary.com/dplwawynt/image/upload/v1743929133/k34chxvprupz307ilpqx.jpg"
+                    "format": "binary"
                   }
                 }
               }
@@ -432,7 +432,7 @@
                   "photo": {
                     "description": "Link to contact's photo",
                     "type": "string",
-                    "example": "https://res.cloudinary.com/dplwawynt/image/upload/v1743929133/k34chxvprupz307ilpqx.jpg"
+                    "format": "binary"
                   }
                 }
               }
@@ -599,10 +599,7 @@
           "_id",
           "name",
           "phoneNumber",
-          "contactType",
-          "userId",
-          "createdAt",
-          "updatedAt"
+          "contactType"
         ],
         "properties": {
           "_id": {
